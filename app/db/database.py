@@ -5,7 +5,6 @@ from app.core.config import settings
 # The Engine: The actual communication pipeline to PostgreSQL
 engine = create_engine(settings.DATABASE_URL)
 
-# The Session Factory: Generates temporary database sessions for our API requests
 # autocommit=False ensures transactions aren't saved until we explicitly call db.commit()
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
