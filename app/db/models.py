@@ -49,7 +49,6 @@ class Expense(Base):
     # State Management
     status = Column(Enum(ExpenseStatus), default=ExpenseStatus.PENDING, nullable=False)
     
-    # Auditing Timestamps
     created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
     # onupdate automatically fires when this row is modified
     updated_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc))
@@ -59,3 +58,4 @@ class Expense(Base):
     
     # The Relationship pointing back to the User table
     owner = relationship("User", back_populates="expenses")
+
