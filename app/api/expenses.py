@@ -16,7 +16,7 @@ allow_managers = RoleChecker([UserRole.MANAGER, UserRole.ADMIN])
 def submit_expense(
     expense_in: ExpenseCreate, 
     db: Session = Depends(get_db), 
-    current_user: User = Depends(get_current_user) # Standard AuthN
+    current_user: User = Depends(get_current_user)
 ):
     """Any logged-in user can submit an expense."""
     return create_expense(db=db, expense_in=expense_in, current_user=current_user)
